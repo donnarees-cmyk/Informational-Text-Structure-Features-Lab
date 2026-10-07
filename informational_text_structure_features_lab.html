@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Florida B.E.S.T. ELA.6.R.2.1 - Text Structure & Features Lab</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-hover: #334155;
+      --accent-amber: #d97706;
+      --accent-teal: #0d9488;
+      --accent-emerald: #059669;
+      --accent-indigo: #6366f1;
+      --accent-rose: #e11d48;
+      --accent-sky: #0284c7;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0f172a;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+
+    .highlight-structure {
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline;
+    }
+    .hl-cause {
+      background: rgba(217, 119, 6, 0.25);
+      border-bottom: 2px solid var(--accent-amber);
+      color: #fef3c7;
+    }
+    .hl-compare {
+      background: rgba(13, 148, 136, 0.25);
+      border-bottom: 2px solid var(--accent-teal);
+      color: #ccfbf1;
+    }
+    .hl-problem {
+      background: rgba(225, 29, 72, 0.25);
+      border-bottom: 2px solid var(--accent-rose);
+      color: #ffe4e6;
+    }
+    .hl-chrono {
+      background: rgba(99, 102, 241, 0.25);
+      border-bottom: 2px solid var(--accent-indigo);
+      color: #e0e7ff;
+    }
+    .highlight-structure:hover {
+      filter: brightness(1.25);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    }
+
+    .option-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 12px 16px;
+      border-radius: 8px;
+      text-align: left;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .option-btn:hover:not(:disabled) {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-amber);
+    }
+    .option-btn.correct {
+      background: rgba(5, 150, 105, 0.25) !important;
+      border-color: var(--accent-emerald) !important;
+      color: #6ee7b7 !important;
+    }
+    .option-btn.incorrect {
+      background: rgba(225, 29, 72, 0.25) !important;
+      border-color: var(--accent-rose) !important;
+      color: #fca5a5 !important;
+    }
+
+    .rationale-box {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      display: none;
+      line-height: 1.6;
+    }
+    .rationale-box.visible {
+      display: block;
+    }
+    .rationale-box.correct {
+      background: rgba(5, 150, 105, 0.15);
+      border: 1px solid var(--accent-emerald);
+      color: #a7f3d0;
+    }
+    .rationale-box.incorrect {
+      background: rgba(225, 29, 72, 0.15);
+      border: 1px solid var(--accent-rose);
+      color: #fecdd3;
+    }
+  </style>
+</head>
+<body class="p-4 md:p-6 max-w-7xl mx-auto">
+
+  <!-- Header Banner -->
+  <header class="bg-gradient-to-r from-amber-600 via-amber-700 to-indigo-900 p-6 rounded-2xl mb-6 shadow-2xl flex flex-wrap justify-between items-center gap-4 border border-amber-500/30">
+    <div>
+      <span class="inline-block bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white border border-white/30 mb-2">
+        Florida B.E.S.T. Standard ELA.6.R.2.1
+      </span>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+        Informational Text Structure & Features Lab
+      </h1>
+      <p class="text-amber-100 text-sm md:text-base mt-1 max-w-2xl">
+        Analyze how authors use organizational text structures (Chronological, Cause & Effect, Compare & Contrast, Problem & Solution, Description) and text features to build central ideas.
+      </p>
+    </div>
+    <div class="text-right bg-slate-900/40 p-3 rounded-xl border border-white/10 backdrop-blur-sm">
+      <div class="text-xs text-amber-200 uppercase font-semibold">Target Benchmark</div>
+      <div class="font-bold text-lg text-white">ELA.6.R.2.1 Informational Analysis</div>
+    </div>
+  </header>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+    <!-- LEFT COLUMN: Canvas Animation & Informational Article -->
+    <div class="flex flex-col gap-6">
+
+      <!-- Interactive Animation Canvas Visualizer -->
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl">
+        <div class="flex justify-between items-center border-b border-slate-700 pb-3 mb-4">
+          <div class="flex items-center gap-2 font-bold text-lg text-slate-100">
+            <span class="text-amber-400 text-xl">🏛️</span>
+            <span>Interactive Structure Architecture Visualizer</span>
+          </div>
+          <span id="structureLabel" class="text-xs font-bold px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase">
+            Cause & Effect Architecture
+          </span>
+        </div>
+
+        <div class="relative w-full bg-slate-950 rounded-xl overflow-hidden border border-slate-800 shadow-inner">
+          <canvas id="structureCanvas" width="600" height="260" class="w-full block"></canvas>
+        </div>
+
+        <!-- Controls -->
+        <div class="mt-4 flex flex-col gap-3">
+          <div class="flex items-center gap-3 bg-slate-900 p-3 rounded-xl border border-slate-800">
+            <button id="playBtn" onclick="togglePlay()" class="bg-amber-600 hover:bg-amber-500 text-white font-semibold px-4 py-2 rounded-lg text-sm transition flex items-center gap-1 shrink-0 shadow-lg">
+              Pause Visualizer
+            </button>
+            <div class="flex-1 bg-slate-800 h-2 rounded-full cursor-pointer relative overflow-hidden" onclick="seekCanvas(event)">
+              <div id="progressFill" class="bg-gradient-to-r from-amber-500 to-indigo-500 h-full w-0 transition-all duration-75"></div>
+            </div>
+            <span id="timeDisplay" class="font-mono text-xs text-slate-400 w-16 text-right">0:00 / 0:10</span>
+          </div>
+
+          <div class="flex gap-2 overflow-x-auto pb-1 custom-scrollbar">
+            <button onclick="switchStructure('cause')" class="struct-btn active bg-amber-600 text-white text-xs px-3 py-1.5 rounded-lg font-semibold shrink-0 border border-amber-400">
+              ⚡ Cause & Effect
+            </button>
+            <button onclick="switchStructure('compare')" class="struct-btn bg-slate-700 text-slate-300 hover:bg-slate-600 text-xs px-3 py-1.5 rounded-lg font-semibold shrink-0 border border-slate-600">
+              ⚖️ Compare & Contrast
+            </button>
+            <button onclick="switchStructure('problem')" class="struct-btn bg-slate-700 text-slate-300 hover:bg-slate-600 text-xs px-3 py-1.5 rounded-lg font-semibold shrink-0 border border-slate-600">
+              🛠️ Problem & Solution
+            </button>
+            <button onclick="switchStructure('chrono')" class="struct-btn bg-slate-700 text-slate-300 hover:bg-slate-600 text-xs px-3 py-1.5 rounded-lg font-semibold shrink-0 border border-slate-600">
+              ⏳ Chronological
+            </button>
+            <button onclick="switchStructure('desc')" class="struct-btn bg-slate-700 text-slate-300 hover:bg-slate-600 text-xs px-3 py-1.5 rounded-lg font-semibold shrink-0 border border-slate-600">
+              🎨 Description
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Informational Article Reader -->
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl">
+        <div class="flex justify-between items-center border-b border-slate-700 pb-3 mb-3">
+          <div class="flex items-center gap-2 font-bold text-lg text-slate-100">
+            <span class="text-teal-400 text-xl">📰</span>
+            <span>Informational Article Reader</span>
+          </div>
+          <span class="text-xs text-slate-400">Click highlighted text for structural breakdown</span>
+        </div>
+
+        <div class="bg-slate-900 p-5 rounded-xl border border-slate-800 max-h-[460px] overflow-y-auto custom-scrollbar text-slate-300 text-sm leading-relaxed space-y-4">
+          
+          <div class="border-b border-slate-800 pb-3">
+            <h2 class="text-xl font-extrabold text-white tracking-wide">Volcanoes of the Deep: Hydrothermal Vents and Ocean Floor Ecosystems</h2>
+            <p class="text-xs text-amber-400 font-medium mt-0.5">By Dr. Elena Vance | Oceanographic Science Brief</p>
+          </div>
+
+          <!-- Text Feature Callout Box -->
+          <div class="bg-slate-800/80 border-l-4 border-amber-500 p-3.5 rounded-r-lg text-xs space-y-1">
+            <div class="font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1">
+              <span>💡</span> Text Feature Spotlight: Key Term Vocabulary
+            </div>
+            <p><strong class="text-white">Hydrothermal Vent:</strong> A fissure on the seafloor from which geothermally heated water discharges.</p>
+            <p><strong class="text-white">Chemosynthesis:</strong> The synthesis of organic compounds by bacteria using energy derived from reactions involving inorganic chemicals, without sunlight.</p>
+          </div>
+
+          <p>
+            <strong>Paragraph 1:</strong> Thousands of meters below the ocean surface, total darkness and crushing pressure create an environment that seems inhospitable to life. However, deep-sea hydrothermal vents create thriving biological oases in the abyssal zone.
+          </p>
+
+          <p>
+            <strong>Paragraph 2 (Cause & Effect):</strong> 
+            <span class="highlight-structure hl-cause" onclick="explainStructure('cause1')">
+              Because tectonic plates beneath the ocean floor pull apart, seawater seeps into deep volcanic crust fissures. Consequently, the water becomes superheated by magma up to 700°F (370°C) and absorbs heavy minerals. As a result of intense pressure, this boiling water does not turn to steam; instead, it spews back up into the freezing ocean, precipitating dark metal sulfide chimneys.
+            </span>
+          </p>
+
+          <!-- Text Feature Data Table -->
+          <div class="my-3 overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse bg-slate-800/60 rounded-lg overflow-hidden border border-slate-700">
+              <thead>
+                <tr class="bg-slate-700/80 text-amber-300">
+                  <th class="p-2 border-b border-slate-600">Feature / Ecosystem</th>
+                  <th class="p-2 border-b border-slate-600">Sunlight Zone (0-200m)</th>
+                  <th class="p-2 border-b border-slate-600">Hydrothermal Vent Zone (2000m+)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-700/50 text-slate-300">
+                <tr>
+                  <td class="p-2 font-semibold text-white">Primary Energy Source</td>
+                  <td class="p-2">Sunlight (Photosynthesis)</td>
+                  <td class="p-2 text-teal-300">Chemical Minerals (Chemosynthesis)</td>
+                </tr>
+                <tr>
+                  <td class="p-2 font-semibold text-white">Base Producer</td>
+                  <td class="p-2">Phytoplankton & Plants</td>
+                  <td class="p-2 text-teal-300">Extremophile Bacteria</td>
+                </tr>
+              </tbody>
+            </table>
+            <span class="text-[11px] text-slate-400 italic block mt-1">Figure 1.1: Side-by-side comparison of ocean energy pathways.</span>
+          </div>
+
+          <p>
+            <strong>Paragraph 3 (Compare & Contrast):</strong> 
+            <span class="highlight-structure hl-compare" onclick="explainStructure('compare1')">
+              Unlike surface marine ecosystems that rely entirely on sunlight for photosynthesis, hydrothermal vent communities depend entirely on chemosynthesis. While sunlit coral reefs are anchored by photosynthetic algae, deep vent networks are powered by bacteria that convert toxic hydrogen sulfide into organic energy. In contrast to tropical fish that require warm sunlit waters, giant tube worms and yeti crabs survive in freezing water adjacent to scalding vent fluids.
+            </span>
+          </p>
+
+          <p>
+            <strong>Paragraph 4 (Problem & Solution):</strong> 
+            <span class="highlight-structure hl-problem" onclick="explainStructure('problem1')">
+              A major obstacle facing marine biologists was that traditional underwater cameras could not withstand the crushing hydrostatic pressure and extreme temperatures near hydrothermal vents. To solve this problem, engineers developed specialized titanium-hulled Autonomous Underwater Vehicles (AUVs) equipped with heat-resistant quartz lenses and high-powered acoustic sonar. As a result, scientists can now map hydrothermal vent fields without destroying delicate research sensors.
+            </span>
+          </p>
+
+          <p>
+            <strong>Paragraph 5 (Chronological Sequence):</strong> 
+            <span class="highlight-structure hl-chrono" onclick="explainStructure('chrono1')">
+              First discovered in 1977 near the Galápagos Rift, hydrothermal vents revolutionized our understanding of biological survival. Next, during the 1980s, robotic submersibles mapped vent chimneys across the Mid-Atlantic Ridge. Subsequently, in 2010, researchers identified high-temperature vents in the Antarctic Ocean. Today, scientists use these deep-sea ecosystems to study how life might exist on icy moons like Jupiter's Europa.
+            </span>
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: Text Structure Matrix & Practice Quiz -->
+    <div class="flex flex-col gap-6">
+
+      <!-- Text Structure Breakdown Matrix -->
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl">
+        <div class="flex items-center gap-2 font-bold text-lg text-slate-100 border-b border-slate-700 pb-3 mb-4">
+          <span class="text-indigo-400 text-xl">🧩</span>
+          <span>Text Structure Blueprint Matrix</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          
+          <div class="bg-slate-900/90 p-3 rounded-xl border border-amber-500/30">
+            <h4 class="font-bold text-amber-400 flex items-center gap-1 text-sm mb-1">
+              <span>⚡</span> Cause & Effect
+            </h4>
+            <p class="text-slate-300"><strong class="text-slate-100">Purpose:</strong> Shows why something happens and what happens as a result.</p>
+            <p class="text-amber-200/90 mt-1"><strong class="text-slate-100">Signal Words:</strong> <em>because, as a result, consequently, due to, leads to, therefore.</em></p>
+          </div>
+
+          <div class="bg-slate-900/90 p-3 rounded-xl border border-teal-500/30">
+            <h4 class="font-bold text-teal-400 flex items-center gap-1 text-sm mb-1">
+              <span>⚖️</span> Compare & Contrast
+            </h4>
+            <p class="text-slate-300"><strong class="text-slate-100">Purpose:</strong> Examines similarities and differences between two or more topics.</p>
+            <p class="text-teal-200/90 mt-1"><strong class="text-slate-100">Signal Words:</strong> <em>unlike, in contrast, similarly, while, however, on the other hand.</em></p>
+          </div>
+
+          <div class="bg-slate-900/90 p-3 rounded-xl border border-rose-500/30">
+            <h4 class="font-bold text-rose-400 flex items-center gap-1 text-sm mb-1">
+              <span>🛠️</span> Problem & Solution
+            </h4>
+            <p class="text-slate-300"><strong class="text-slate-100">Purpose:</strong> Presents a challenge/obstacle and details one or more ways to resolve it.</p>
+            <p class="text-rose-200/90 mt-1"><strong class="text-slate-100">Signal Words:</strong> <em>problem, obstacle, resolve, answer, to solve this, challenge.</em></p>
+          </div>
+
+          <div class="bg-slate-900/90 p-3 rounded-xl border border-indigo-500/30">
+            <h4 class="font-bold text-indigo-400 flex items-center gap-1 text-sm mb-1">
+              <span>⏳</span> Chronological Sequence
+            </h4>
+            <p class="text-slate-300"><strong class="text-slate-100">Purpose:</strong> Outlines events in step-by-step order or historical time frame.</p>
+            <p class="text-indigo-200/90 mt-1"><strong class="text-slate-100">Signal Words:</strong> <em>first, next, subsequently, dates (1977, 1980s), finally, initially.</em></p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Florida B.E.S.T. Assessment Suite -->
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl flex-1 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-center bg-slate-900 p-3 rounded-xl border border-slate-700 mb-4">
+            <span class="font-bold text-slate-200 text-sm md:text-base">Florida B.E.S.T. State Assessment Suite</span>
+            <span id="scoreDisplay" class="bg-emerald-600 text-white font-bold px-3 py-1 rounded-full text-xs shadow-md">
+              Score: 0 / 8
+            </span>
+          </div>
+
+          <div id="quizContainer">
+            <!-- Dynamic quiz content -->
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center gap-3 pt-4 border-t border-slate-700 mt-4">
+          <button id="prevBtn" onclick="navigateQuiz(-1)" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold px-4 py-2 rounded-lg text-sm transition disabled:opacity-40 disabled:cursor-not-allowed">
+            Previous
+          </button>
+          <span id="quizProgress" class="text-xs text-slate-400 font-medium">Question 1 of 8</span>
+          <button id="nextBtn" onclick="navigateQuiz(1)" class="bg-amber-600 hover:bg-amber-500 text-white font-semibold px-4 py-2 rounded-lg text-sm transition">
+            Next Question
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    /* ==========================================
+       1. INTERACTIVE CANVAS ANIMATION ENGINE
+       ========================================== */
+    const canvas = document.getElementById('structureCanvas');
+    const ctx = canvas.getContext('2d');
+    let currentTime = 0;
+    const totalTime = 10;
+    let isPlaying = true;
+    let currentStruct = 'cause';
+    let animInterval = null;
+
+    function drawStructureCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Background Grid
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < canvas.width; x += 30) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      for (let y = 0; y < canvas.height; y += 30) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+
+      const progress = currentTime / totalTime;
+
+      if (currentStruct === 'cause') {
+        // Cause & Effect Chain
+        const boxWidth = 140, boxHeight = 70, yPos = 95;
+        
+        // Box 1: Cause
+        ctx.fillStyle = '#d97706';
+        ctx.roundRect(50, yPos, boxWidth, boxHeight, 10);
+        ctx.fill();
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 13px system-ui';
+        ctx.fillText('CAUSE', 95, yPos + 30);
+        ctx.font = '11px system-ui';
+        ctx.fillText('Plates Pull Apart', 72, yPos + 48);
+
+        // Arrow 1
+        let arrow1Progress = Math.min(1, progress * 2);
+        ctx.strokeStyle = '#f59e0b';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(190, yPos + 35);
+        ctx.lineTo(190 + 50 * arrow1Progress, yPos + 35);
+        ctx.stroke();
+
+        // Box 2: Intermediate
+        if (progress > 0.3) {
+          ctx.fillStyle = '#b45309';
+          ctx.roundRect(240, yPos, boxWidth, boxHeight, 10);
+          ctx.fill();
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 12px system-ui';
+          ctx.fillText('EFFECT / CAUSE', 260, yPos + 30);
+          ctx.font = '11px system-ui';
+          ctx.fillText('Superheated Magma', 252, yPos + 48);
+        }
+
+        // Arrow 2
+        if (progress > 0.6) {
+          let arrow2Progress = Math.min(1, (progress - 0.6) * 2.5);
+          ctx.strokeStyle = '#f59e0b';
+          ctx.lineWidth = 4;
+          ctx.beginPath();
+          ctx.moveTo(380, yPos + 35);
+          ctx.lineTo(380 + 50 * arrow2Progress, yPos + 35);
+          ctx.stroke();
+
+          // Box 3: Final Effect
+          ctx.fillStyle = '#059669';
+          ctx.roundRect(430, yPos, boxWidth, boxHeight, 10);
+          ctx.fill();
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 13px system-ui';
+          ctx.fillText('FINAL EFFECT', 455, yPos + 30);
+          ctx.font = '11px system-ui';
+          ctx.fillText('Mineral Chimneys', 450, yPos + 48);
+        }
+
+      } else if (currentStruct === 'compare') {
+        // Compare & Contrast Venn Matrix
+        let radius = 80 + Math.sin(progress * Math.PI) * 5;
+        
+        // Circle 1: Sunlight
+        ctx.fillStyle = 'rgba(13, 148, 136, 0.4)';
+        ctx.strokeStyle = '#14b8a6';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(230, 140, radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Circle 2: Hydrothermal Vents
+        ctx.fillStyle = 'rgba(99, 102, 241, 0.4)';
+        ctx.strokeStyle = '#818cf8';
+        ctx.beginPath();
+        ctx.arc(370, 140, radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Labels
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 12px system-ui';
+        ctx.fillText('SUNLIGHT REEFS', 170, 130);
+        ctx.font = '10px system-ui';
+        ctx.fillText('• Photosynthesis', 170, 150);
+
+        ctx.font = 'bold 12px system-ui';
+        ctx.fillText('DEEP VENTS', 345, 130);
+        ctx.font = '10px system-ui';
+        ctx.fillText('• Chemosynthesis', 345, 150);
+
+        ctx.font = 'bold 11px system-ui';
+        ctx.fillStyle = '#fef3c7';
+        ctx.fillText('BOTH', 288, 135);
+        ctx.font = '9px system-ui';
+        ctx.fillText('Thriving Life', 280, 150);
+
+      } else if (currentStruct === 'problem') {
+        // Problem & Solution Bridge
+        ctx.fillStyle = '#e11d48';
+        ctx.roundRect(80, 95, 160, 70, 10);
+        ctx.fill();
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 13px system-ui';
+        ctx.fillText('PROBLEM', 130, 125);
+        ctx.font = '11px system-ui';
+        ctx.fillText('Crushing Pressure & Heat', 92, 145);
+
+        // Solution Bridge
+        ctx.fillStyle = '#059669';
+        ctx.roundRect(360, 95, 160, 70, 10);
+        ctx.fill();
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 13px system-ui';
+        ctx.fillText('SOLUTION', 410, 125);
+        ctx.font = '11px system-ui';
+        ctx.fillText('Titanium AUV Submersibles', 368, 145);
+
+        // Connecting Bridge
+        let bridgeW = 120 * progress;
+        ctx.fillStyle = '#38bdf8';
+        ctx.fillRect(240, 120, bridgeW, 20);
+      } else if (currentStruct === 'chrono') {
+        // Chronological Timeline
+        ctx.strokeStyle = '#6366f1';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(50, 140);
+        ctx.lineTo(50 + 500 * progress, 140);
+        ctx.stroke();
+
+        const dates = [
+          {x: 100, year: '1977', label: 'Discovery'},
+          {x: 250, year: '1980s', label: 'Mapping'},
+          {x: 400, year: '2010', label: 'Antarctic Vents'},
+          {x: 500, year: 'Today', label: 'Space Study'}
+        ];
+
+        dates.forEach(d => {
+          if (progress * 550 >= d.x - 50) {
+            ctx.fillStyle = '#818cf8';
+            ctx.beginPath();
+            ctx.arc(d.x, 140, 8, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 12px system-ui';
+            ctx.fillText(d.year, d.x - 15, 115);
+            ctx.font = '10px system-ui';
+            ctx.fillText(d.label, d.x - 20, 170);
+          }
+        });
+      } else {
+        // Description / Feature Spotlight
+        ctx.fillStyle = '#0d9488';
+        ctx.beginPath();
+        ctx.arc(300, 140, 45, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 12px system-ui';
+        ctx.fillText('Hydrothermal', 262, 136);
+        ctx.fillText('Vents', 285, 150);
+
+        const angles = [0, 72, 144, 216, 288];
+        const labels = ['Scalding Water', 'Chemosynthesis', 'Tube Worms', 'Black Sulfides', 'Abyssal Depth'];
+        
+        angles.forEach((ang, i) => {
+          let rad = (ang * Math.PI) / 180;
+          let dist = 100 * Math.min(1, progress * 1.5);
+          let x = 300 + Math.cos(rad) * dist;
+          let y = 140 + Math.sin(rad) * dist;
+
+          ctx.strokeStyle = '#2dd4bf';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(300, 140);
+          ctx.lineTo(x, y);
+          ctx.stroke();
+
+          ctx.fillStyle = '#14b8a6';
+          ctx.beginPath();
+          ctx.arc(x, y, 6, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = '#ccfbf1';
+          ctx.font = '10px system-ui';
+          ctx.fillText(labels[i], x - 25, y < 140 ? y - 10 : y + 18);
+        });
+      }
+    }
+
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      document.getElementById('playBtn').innerText = isPlaying ? 'Pause Visualizer' : 'Play Visualizer';
+      if (isPlaying) {
+        startAnim();
+      } else {
+        clearInterval(animInterval);
+      }
+    }
+
+    function startAnim() {
+      clearInterval(animInterval);
+      animInterval = setInterval(() => {
+        currentTime += 0.1;
+        if (currentTime > totalTime) currentTime = 0;
+        updateUI();
+      }, 100);
+    }
+
+    function updateUI() {
+      document.getElementById('progressFill').style.width = `${(currentTime / totalTime) * 100}%`;
+      let mins = Math.floor(currentTime / 60);
+      let secs = Math.floor(currentTime % 60).toString().padStart(2, '0');
+      document.getElementById('timeDisplay').innerText = `0:${secs} / 0:10`;
+      drawStructureCanvas();
+    }
+
+    function switchStructure(type) {
+      currentStruct = type;
+      currentTime = 0;
+      const labels = {
+        cause: 'Cause & Effect Architecture',
+        compare: 'Compare & Contrast Venn Matrix',
+        problem: 'Problem & Solution Bridge',
+        chrono: 'Chronological Timeline Flow',
+        desc: 'Description Radial Spotlight'
+      };
+      document.getElementById('structureLabel').innerText = labels[type];
+      
+      document.querySelectorAll('.struct-btn').forEach(btn => {
+        btn.classList.remove('bg-amber-600', 'text-white', 'border-amber-400', 'active');
+        btn.classList.add('bg-slate-700', 'text-slate-300', 'border-slate-600');
+      });
+      event.target.classList.add('bg-amber-600', 'text-white', 'border-amber-400', 'active');
+      event.target.classList.remove('bg-slate-700', 'text-slate-300', 'border-slate-600');
+
+      updateUI();
+    }
+
+    function seekCanvas(e) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const pos = (e.clientX - rect.left) / rect.width;
+      currentTime = pos * totalTime;
+      updateUI();
+    }
+
+    startAnim();
+
+    /* ==========================================
+       2. INTERACTIVE PASSAGE EXPLANATION POPUPS
+       ========================================== */
+    function explainStructure(key) {
+      const data = {
+        cause1: "CAUSE & EFFECT ANALYSIS: Paragraph 2 uses cause/effect signal words ('Because', 'Consequently', 'As a result') to explain how tectonic plate movement directly triggers the creation of superheated mineral vents.",
+        compare1: "COMPARE & CONTRAST ANALYSIS: Paragraph 3 relies on contrast signal words ('Unlike', 'While', 'In contrast to') to highlight fundamental differences between sunlit coral reefs and deep-sea hydrothermal ecosystems.",
+        problem1: "PROBLEM & SOLUTION ANALYSIS: Paragraph 4 presents a technical challenge (cameras crushed by deep-sea pressure) and details how titanium AUV submersibles resolved the issue.",
+        chrono1: "CHRONOLOGICAL SEQUENCE ANALYSIS: Paragraph 5 presents historical events in sequence using time transition words ('First discovered in 1977', 'Next', 'Subsequently, in 2010', 'Today')."
+      };
+      alert(data[key]);
+    }
+
+    /* ==========================================
+       3. FLORIDA B.E.S.T. ASSESSMENT SUITE
+       ========================================== */
+    const quizData = [
+      {
+        id: 1,
+        question: "How does the author structure Paragraph 2 to develop ideas about hydrothermal vent creation?",
+        options: [
+          "A. By presenting historical dates of major ocean volcanic eruptions in chronological order.",
+          "B. By using cause and effect relationships to explain how tectonic plate movement results in mineral chimneys.",
+          "C. By comparing hydrothermal vents in the Atlantic Ocean with those in the Pacific Ocean.",
+          "D. By posing a problem regarding ocean water pollution and offering a technological solution."
+        ],
+        correct: 1,
+        rationale: "Correct! Standard ELA.6.R.2.1 requires analyzing how text structure develops ideas. Paragraph 2 explicitly uses cause-and-effect transitions ('Because', 'Consequently', 'As a result') to explain the physical process behind vent formation."
+      },
+      {
+        id: 2,
+        question: "This question has two parts. First, answer Part A. Then, answer Part B.\n\nPart A: What primary text structure does the author use in Paragraph 3?",
+        options: [
+          "A. Chronological / Sequential Order",
+          "B. Cause and Effect",
+          "C. Compare and Contrast",
+          "D. Problem and Solution"
+        ],
+        correct: 2,
+        rationale: "Correct! Paragraph 3 contrasts sunlight-dependent surface ecosystems with deep vent chemosynthetic ecosystems."
+      },
+      {
+        id: 3,
+        question: "Part B: Which set of signal words from Paragraph 3 best supports the answer to Part A?",
+        options: [
+          "A. 'Thousands of meters', 'crushing pressure', 'abyssal zone'",
+          "B. 'Unlike', 'While', 'In contrast to'",
+          "C. 'Because', 'Consequently', 'As a result'",
+          "D. 'First discovered', 'Next', 'Today'"
+        ],
+        correct: 1,
+        rationale: "Correct! Signal words like 'Unlike', 'While', and 'In contrast to' are classic indicators of a compare-and-contrast text structure."
+      },
+      {
+        id: 4,
+        question: "How does the text feature titled 'Figure 1.1' (the side-by-side data table) contribute to the development of central ideas in the article?",
+        options: [
+          "A. It provides a visual timeline of when deep ocean submersibles were invented.",
+          "B. It reinforces the text by clearly contrasting energy pathways and primary producers in two different ocean zones.",
+          "C. It offers a map showing exact GPS coordinates of hydrothermal vents across the globe.",
+          "D. It illustrates the mechanical design of titanium AUV hulls."
+        ],
+        correct: 1,
+        rationale: "Correct! Text features work together with text structure. The table categorizes differences between sunlight and hydrothermal ecosystems, reinforcing the compare-and-contrast structure of Paragraph 3."
+      },
+      {
+        id: 5,
+        question: "In Paragraph 4, how does the author transition from explaining a obstacle to presenting a breakthrough?",
+        options: [
+          "A. By shifting from a Problem and Solution structure using phrases like 'A major obstacle' and 'To solve this problem'.",
+          "B. By switching to a Chronological structure listing the exact cost of underwater submersibles.",
+          "C. By describing the physical colors and textures of deep ocean yeti crabs.",
+          "D. By contrasting photosynthetic algae with deep vent bacteria."
+        ],
+        correct: 0,
+        rationale: "Correct! Paragraph 4 establishes the problem (cameras crushed by pressure) and introduces the solution (titanium AUVs), using explicit problem/solution structure."
+      },
+      {
+        id: 6,
+        question: "What is the author's purpose in using a chronological text structure in Paragraph 5?",
+        options: [
+          "A. To show how ocean water temperature changes from the surface to the seafloor.",
+          "B. To detail the timeline of hydrothermal vent discoveries from 1977 to modern planetary exploration.",
+          "C. To argue that deep-sea research receives more funding than space exploration.",
+          "D. To explain why bacteria require hydrogen sulfide to synthesize energy."
+        ],
+        correct: 1,
+        rationale: "Correct! Paragraph 5 uses time markers ('1977', '1980s', '2010', 'Today') to present a historical sequence of oceanographic discoveries."
+      },
+      {
+        id: 7,
+        question: "How does the author's use of the callout box ('Text Feature Spotlight') assist the reader in comprehending the text?",
+        options: [
+          "A. It defines crucial domain-specific scientific vocabulary terms needed to understand how vent ecosystems function without sunlight.",
+          "B. It outlines the step-by-step safety rules for operating research vessels.",
+          "C. It lists the biographical details of Dr. Elena Vance.",
+          "D. It compares hydrothermal vent water temperatures across five oceans."
+        ],
+        correct: 0,
+        rationale: "Correct! The callout feature defines key technical vocabulary ('Hydrothermal Vent', 'Chemosynthesis') upfront, enabling readers to grasp complex scientific ideas in subsequent paragraphs."
+      },
+      {
+        id: 8,
+        question: "Which statement best describes how overall text structures contribute to the author's purpose in the article?",
+        options: [
+          "A. The author relies entirely on a single structure to avoid confusing the reader.",
+          "B. The author strategically combines multiple text structures (Cause/Effect, Compare/Contrast, Problem/Solution, Chronology) to thoroughly explain vent origins, biology, technology, and discovery history.",
+          "C. The author uses fictional narratives to make ocean science more dramatic.",
+          "D. The author uses a description structure only to list deep ocean fish species."
+        ],
+        correct: 1,
+        rationale: "Correct! Authors of complex informational texts often shift structures across sections to serve different sub-purposes (explaining causes, comparing ecosystems, solving engineering challenges, and tracing history)."
+      }
+    ];
+
+    let currentQuestionIdx = 0;
+    let userAnswers = new Array(quizData.length).fill(null);
+
+    function renderQuestion(idx) {
+      const q = quizData[idx];
+      const container = document.getElementById('quizContainer');
+      
+      let optionsHTML = q.options.map((opt, oIdx) => {
+        let btnClass = 'option-btn';
+        if (userAnswers[idx] !== null) {
+          if (oIdx === q.correct) btnClass += ' correct';
+          else if (oIdx === userAnswers[idx]) btnClass += ' incorrect';
+        }
+        return `<button class="${btnClass}" onclick="selectAnswer(${idx}, ${oIdx})" ${userAnswers[idx] !== null ? 'disabled' : ''}>${opt}</button>`;
+      }).join('');
+
+      let rationaleClass = 'rationale-box';
+      if (userAnswers[idx] !== null) {
+        rationaleClass += ' visible ' + (userAnswers[idx] === q.correct ? 'correct' : 'incorrect');
+      }
+
+      container.innerHTML = `
+        <div class="bg-slate-900 border border-slate-700 rounded-xl p-4 mb-3">
+          <div class="font-semibold text-slate-100 text-sm md:text-base mb-3">${q.question.replace(/\n/g, '<br>')}</div>
+          <div class="space-y-2">${optionsHTML}</div>
+          <div class="${rationaleClass}">${q.rationale}</div>
+        </div>
+      `;
+
+      document.getElementById('prevBtn').disabled = idx === 0;
+      document.getElementById('nextBtn').disabled = idx === quizData.length - 1;
+      document.getElementById('quizProgress').innerText = `Question ${idx + 1} of ${quizData.length}`;
+      updateScoreDisplay();
+    }
+
+    function selectAnswer(qIdx, oIdx) {
+      userAnswers[qIdx] = oIdx;
+      renderQuestion(qIdx);
+    }
+
+    function navigateQuiz(dir) {
+      currentQuestionIdx += dir;
+      renderQuestion(currentQuestionIdx);
+    }
+
+    function updateScoreDisplay() {
+      let score = userAnswers.reduce((acc, ans, idx) => {
+        return ans === quizData[idx].correct ? acc + 1 : acc;
+      }, 0);
+      document.getElementById('scoreDisplay').innerText = `Score: ${score} / ${quizData.length}`;
+    }
+
+    renderQuestion(0);
+  </script>
+</body>
+</html>
